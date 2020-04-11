@@ -1,0 +1,187 @@
+//1. Given a number. Print “odd” if the number is odd and “even” if it’s even.
+function oddOrEven(n) {
+  return n % 2 === 0 ? "even" : "odd";
+}
+console.log(oddOrEven(4));
+
+//2. Given two numbers print 1 if one of them is divisible by the other one, otherwise print 0.
+function ifDivisible(a, b) {
+  return Number(a % b === 0 || b % a === 0);
+}
+console.log(ifDivisible(2, 5));
+
+//3. Given two variables, which are the angles of a triangle. Find the third angle of the
+//triangle. (Sum of the angles of a triangle equals 180 degrees).
+function thirdAngle(x, y) {
+  return 180 - x - y;
+}
+console.log(thirdAngle(45, 90));
+
+//4. Given number n (positive integer). Print the value of n + nn + nnn(not multiplication).
+function addTwoThreeDigits(n) {
+  let twoDigit = String(n) + String(n);
+  let threeDigit = twoDigit + String(n);
+  return n + Number(twoDigit) + Number(threeDigit);
+}
+console.log(addTwoThreeDigits(17));
+
+//5. Given a positive integer. Bring the last digit of the number to the beginning. Print the new
+//number. If the last digit of the inserted number is 0, number remains the same.
+function lastDigitToBegining(n) {
+  let s = String(n);
+  return s[s.length - 1] === "0"
+    ? n
+    : Number(s[s.length - 1] + s.substring(0, s.length - 1));
+}
+console.log(lastDigitToBegining(124));
+
+//6. Given five numbers as input. Calculate and print the average of the numbers(no array)
+function aveOfFiveNums(a, b, c, d, e) {
+  return (a + b + c + d + e) / 5;
+}
+console.log(aveOfFiveNums(45, -12, 0, 3, -15));
+
+//7. Check if a number is a multiple of 3, 5 or 7 and output the appropriate message.
+
+function isDivisibleByNums(n) {
+  if (n % (3 * 5 * 7) === 0) return n + " is a multiple of 3, 5 and 7.";
+  else if (n % (3 * 5) === 0) return n + " is a multiple of 3 and 5.";
+  else if (n % (3 * 7) === 0) return n + " is a multiple of 3 and 7.";
+  else if (n % (7 * 5) === 0) return n + " is a multiple of 5 and 7.";
+  else if (n % 3 === 0) return n + " is a multiple of 3.";
+  else if (n % 5 === 0) return n + " is a multiple of 5.";
+  else if (n % 7 === 0) return n + " is a multiple of 7";
+}
+console.log(isDivisibleByNums(345));
+
+//8. Given an age, figure out whether someone is a baby(1 months - 12 months), toddler (1
+// year - 2 years), child(3 years - 12 years ), teenager(13 years - 17 years) or adult(18
+//   years and more ). Also check that age in months is between 1 and 12.
+function ageOfPerson(age, monthYear) {
+  if (monthYear === "months" && age >= 1 && age <= 12) {
+    return "baby";
+  }
+  if (monthYear === "months") {
+    age = Math.floor(age / 12);
+  }
+  if (age === 1 || age === 2) {
+    return "toddler";
+  } else if (age >= 3 && age <= 12) {
+    return "child";
+  } else if (age >= 13 && age <= 17) {
+    return "teenager";
+  } else if (age >= 18) {
+    return "adult";
+  }
+}
+// month@ urish tex check chenq anum?
+console.log(ageOfPerson(11, "months"));
+
+//9. Given three numbers. Sort them by the ascending order.
+function ascendingOrder(x, y, z) {
+  let nums = [x, y, z];
+  nums.sort(function(a, b) {
+    return a - b;
+  });
+  return nums;
+}
+console.log(ascendingOrder(1, 2, 1));
+
+// 10. Percentage marks obtained by a student in three exams are to be entered to a
+// computer. An indication of Pass or Fail is given out after the three marks are entered.
+// The criteria for passing are as follows:
+// a. A student passes if all three examinations are passed.
+// b. Additionally a student may pass if only one subject is failed but the overall
+// average is greater than or equal to 50.
+// The pass mark for an individual subject is 40.
+function passExam(x, y, z) {
+  if (x >= 40 && y >= 40 && z >= 40) {
+    return "Passed";
+  } else if (
+    ((x >= 40 && y >= 40) || (y >= 40 && z >= 40) || (x >= 40 && z >= 40)) &&
+    (x + y + z) / 3 >= 50
+  ) {
+    return "Passed";
+  } else {
+    return "Not passed";
+  }
+}
+console.log(passExam(10, 40, 100));
+
+// 11. Find the sign of product of three numbers without multiplication operator. Display the
+// specified sign.
+function findSign(x, y, z) {
+  if (x === 0 || y === 0 || z === 0) return "unsigned";
+  else if (x > 0 && y > 0 && z > 0) return "+";
+  else if (x > 0 && y < 0 && z < 0) return "+";
+  else if (x < 0 && y < 0 && z > 0) return "+";
+  else if (x < 0 && y > 0 && z < 0) return "+";
+  else return "-";
+}
+console.log(findSign(8, 9, -6));
+
+//12
+function solveQuadraticEquation(a, b, c) {
+  if (a === 0) return "Enter valid constants";
+  let disc = Math.pow(b, 2) - 4 * a * c;
+  if (disc < 0) return "Solution does not exist";
+  else if (disc === 0) return `Solution is ${-b / (2 * a)}`;
+  else {
+    let sol1 = (-b - Math.sqrt(disc)) / (2 * a);
+    let sol2 = (-b + Math.sqrt(disc)) / (2 * a);
+    return `Solutions are ${sol1} and ${sol2}`;
+  }
+}
+console.log(solveQuadraticEquation(1, 2, 3));
+
+//13
+// var n = +prompt();
+// var i = 0
+// var j = 0
+// if(n%2===0 && !Math.floor(n/10)) i+=1
+// if(n%3===0 && n%10 ===1) j+=1
+
+//14
+function isDigitInNum(digit, num) {
+  return String(num).search(String(digit)) === -1 ? "No" : "Yes";
+}
+console.log(isDigitInNum(2, 34));
+
+//15
+function reverseFirstLast(n) {
+  let s = String(n);
+  if (s.length === 1) return n;
+  if (s.length === 2) return Number(s[1] + s[0]);
+  return Number(s[s.length - 1] + s.substring(1, s.length - 1) + s[0]);
+}
+console.log(reverseFirstLast(4566));
+
+//17
+function calcArea(figure, h, b) {
+  let n;
+  switch (figure) {
+    case "triangle":
+      n = 1 / 2;
+      break;
+    case "rectangle":
+      n = 1;
+      break;
+    default:
+  }
+  let validSides = h > 0 && b > 0;
+  return validSides
+    ? `Square of the ${figure} is ${n * h * b}`
+    : "Please enter only positives";
+}
+console.log(calcArea("triangle", 1, 2));
+
+//18
+function diffBS(n) {
+  let s = String(n);
+  let a = s.split("");
+  for (let i = 0; i < a.length; i++) {
+    a[i] = Number(a[i]);
+  }
+  return Math.max(...a) - Math.min(...a);
+}
+console.log(diffBS(123));
