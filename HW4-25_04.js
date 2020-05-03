@@ -86,7 +86,7 @@ console.log(tree(treeNodes))
 // 6. combinations
 let combination = (arr,r,index=0,temp=[],i=0, final = []) =>{
   if(index === r){
-    return final.push(temp.slice(0,3))
+    return final.push(temp.slice(0,r))
   }
   if(i<arr.length){
    
