@@ -101,9 +101,9 @@ console.log(combination([1,2,3,4,5],3))
 
 
 // 7 Map
-let NewMap = function(accumulator={}){
-  this.accumulator = accumulator;
+let NewMap = function(){
   this.mapn = function(fn){
+    let accumulator={}
     for (let i in this){
       if(i !== "mapn" && i !== "accumulator") {
         accumulator[i] = fn(this[i]);
