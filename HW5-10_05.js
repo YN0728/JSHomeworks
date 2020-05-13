@@ -31,16 +31,17 @@ let treeNodesChild = [
   {id: 4, children:[6]},
   {id: "root", children:[1,2]},
   {id: 2, children:[5]},
+  {id: 3, children:[]},
   {id: 5, children:[]},
   {id: 6, children:[]}, 
 ]
-let konch = (arr, id = "root", tempOb = {})=>{
-  let branches = arr.filter(item=>item.id===id);
+let tree = (arr, id = "root", tempOb = {})=>{
+  debugger;
+  let branches = arr.reduce((acc, x)=> acc = x.id===id?x:acc).children;
   if(branches.length===0) return;
-  let a = branches[0].children
-  a.forEach(element => {
-    tempOb[element] = konch(arr, element, tempOb[element.children])||{};
-  });
+  branches.forEach(element => {
+    tempOb[element] = tree(arr, element)||{};
+  });  
   return tempOb
 }
-console.log(konch(treeNodesChild));
+console.log(tree(treeNodesChild));
