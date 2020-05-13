@@ -10,7 +10,7 @@ let binary = (arr, n, l = 0, r = arr.length) => {
 };
 console.log(binary([1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 14, 16, 19], 16));
 
-  s/// with loops
+  /// with loops
 let binary1 = (arr, n, start = 0, end = arr.length) => {
   while (arr[Math.floor((start + end) / 2)] !== n) {
     if (n > arr[Math.floor((start + end) / 2)])
